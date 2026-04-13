@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Cours de maths à domicile à Gignac (34) – Laurent BAREGE, enseignant agréé Service à la Personne. Primaire, Collège, Lycée. 19€/h après crédit d'impôt.">
+<title>Cours de maths à domicile – Laurent BAREGE – Gignac (34)</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bleu:    #1a3a5c;
+    --bleu2:   #2563a8;
+    --or:      #f5a623;
+    --or2:     #ffd07b;
+    --creme:   #fffbf4;
+    --texte:   #1e2d3d;
+    --gris:    #f0f4f8;
+    --vert:    #27ae60;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--creme);
+    color: var(--texte);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--bleu) 0%, var(--bleu2) 60%, #1a6fa8 100%);
+    color: white;
+    padding: 60px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '∑ π √ ∫ ÷ × ²';
+    position: absolute;
+    top: 10px; left: 0; right: 0;
+    font-size: 5rem;
+    opacity: 0.05;
+    letter-spacing: 2rem;
+    white-space: nowrap;
+    animation: drift 20s linear infinite;
+  }
+  @keyframes drift { from { transform: translateX(-5%); } to { transform: translateX(5%); } }
+
+  .hero-badge {
+    display: inline-block;
+    background: var(--or);
+    color: var(--bleu);
+    font-weight: 800;
+    font-size: 0.8rem;
+    padding: 5px 16px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    line-height: 1.15;
+    margin-bottom: 14px;
+  }
+  .hero h1 span { color: var(--or2); }
+  .hero .sous-titre {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 30px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero .cta-group {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+  .btn-or { background: var(--or); color: var(--bleu); }
+  .btn-or:hover { background: var(--or2); transform: translateY(-2px); }
+  .btn-blanc { background: white; color: var(--bleu); }
+  .btn-blanc:hover { background: #e8f0fb; transform: translateY(-2px); }
+
+  .hero-wave {
+    position: absolute;
+    bottom: -2px; left: 0; right: 0;
+  }
+
+  /* ── PRIX ACCROCHE ── */
+  .prix-accroche {
+    background: var(--or);
+    text-align: center;
+    padding: 18px 20px;
+    font-weight: 800;
+    font-size: 1.15rem;
+    color: var(--bleu);
+  }
+  .prix-accroche strong { font-size: 1.5rem; }
+  .prix-accroche .petit { font-size: 0.85rem; font-weight: 600; opacity: 0.75; }
+
+  /* ── SECTIONS ── */
+  section { padding: 60px 20px; max-width: 800px; margin: 0 auto; }
+
+  .section-titre {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    color: var(--bleu);
+    margin-bottom: 8px;
+  }
+  .section-titre span { color: var(--or); }
+  .separateur {
+    width: 50px; height: 4px;
+    background: var(--or);
+    border-radius: 4px;
+    margin-bottom: 28px;
+  }
+
+  /* ── NIVEAUX ── */
+  .niveaux-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-top: 10px;
+  }
+  .niveau-card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px 16px;
+    text-align: center;
+    box-shadow: 0 4px 18px rgba(26,58,92,0.08);
+    border-top: 4px solid var(--bleu2);
+    transition: transform 0.2s;
+  }
+  .niveau-card:hover { transform: translateY(-4px); }
+  .niveau-card .icon { font-size: 2.2rem; margin-bottom: 10px; }
+  .niveau-card h3 { font-size: 1rem; font-weight: 800; color: var(--bleu); }
+  .niveau-card p { font-size: 0.85rem; color: #666; margin-top: 6px; }
+
+  /* ── PÉDAGOGIE ── */
+  .peda-box {
+    background: white;
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 6px 24px rgba(26,58,92,0.08);
+    border-left: 5px solid var(--bleu2);
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+  .peda-box .citation {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    color: var(--bleu);
+    font-style: italic;
+    margin-bottom: 16px;
+  }
+  .peda-points { list-style: none; margin-top: 16px; }
+  .peda-points li { padding: 6px 0; padding-left: 28px; position: relative; }
+  .peda-points li::before { content: '✓'; position: absolute; left: 0; color: var(--vert); font-weight: 800; }
+
+  /* ── TARIFS ── */
+  .tarif-section { background: var(--gris); border-radius: 0; padding: 60px 20px; }
+  .tarif-section > div { max-width: 800px; margin: 0 auto; }
+
+  .tarif-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 10px;
+  }
+  .tarif-card {
+    background: white;
+    border-radius: 20px;
+    padding: 28px 22px;
+    box-shadow: 0 4px 18px rgba(26,58,92,0.08);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .tarif-card.vedette { border: 3px solid var(--or); }
+  .tarif-card.vedette::before {
+    content: '⭐ Mis en avant';
+    position: absolute; top: 0; right: 0;
+    background: var(--or);
+    color: var(--bleu);
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 4px 12px;
+    border-bottom-left-radius: 10px;
+  }
+  .tarif-card h3 { font-size: 1rem; color: #666; margin-bottom: 10px; }
+  .tarif-card .prix-gros { font-size: 2.8rem; font-weight: 900; color: var(--bleu); line-height: 1; }
+  .tarif-card .prix-gros sup { font-size: 1.2rem; vertical-align: top; margin-top: 8px; }
+  .tarif-card .prix-gros span { font-size: 1rem; font-weight: 700; }
+  .tarif-card .detail { font-size: 0.82rem; color: #888; margin-top: 8px; }
+  .tarif-card .badge-ci {
+    display: inline-block;
+    background: #eaf7ee;
+    color: var(--vert);
+    font-weight: 800;
+    font-size: 0.78rem;
+    padding: 4px 12px;
+    border-radius: 50px;
+    margin-top: 12px;
+  }
+
+  .sap-bloc {
+    margin-top: 28px;
+    background: #eaf7ee;
+    border-radius: 14px;
+    padding: 18px 22px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .sap-logo-placeholder {
+    width: 80px;
+    height: 60px;
+    background: white;
+    border: 2px solid #c0e0cc;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    color: #27ae60;
+    font-weight: 800;
+    text-align: center;
+    padding: 4px;
+    flex-shrink: 0;
+  }
+  .sap-texte { font-size: 0.9rem; color: #2d6a4f; line-height: 1.5; }
+  .sap-texte strong { font-size: 1rem; }
+
+  /* ── STAGES ── */
+  .stage-card {
+    background: linear-gradient(135deg, var(--bleu) 0%, var(--bleu2) 100%);
+    color: white;
+    border-radius: 20px;
+    padding: 32px;
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+  }
+  .stage-card::after {
+    content: '🏖️';
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+    font-size: 5rem;
+    opacity: 0.12;
+  }
+  .stage-card h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 12px; }
+  .stage-card p { opacity: 0.9; line-height: 1.7; margin-bottom: 16px; }
+  .stage-card .badge-stage {
+    display: inline-block;
+    background: var(--or);
+    color: var(--bleu);
+    font-weight: 800;
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+  }
+
+  /* Dates stages */
+  #dates-stages { margin-top: 16px; }
+  .date-item {
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+    padding: 10px 16px;
+    margin-top: 8px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .date-item .btn-inscription {
+    background: var(--or);
+    color: var(--bleu);
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  /* ── AVIS ── */
+  .avis-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 18px;
+    margin-bottom: 30px;
+  }
+  .avis-card {
+    background: white;
+    border-radius: 16px;
+    padding: 22px;
+    box-shadow: 0 4px 14px rgba(26,58,92,0.07);
+    border-top: 3px solid var(--or);
+  }
+  .avis-card .etoiles { color: var(--or); font-size: 1.1rem; margin-bottom: 10px; }
+  .avis-card .texte { font-size: 0.95rem; line-height: 1.6; color: #444; font-style: italic; }
+  .avis-card .auteur { margin-top: 12px; font-weight: 800; font-size: 0.85rem; color: var(--bleu); }
+
+  .avis-formulaire {
+    background: white;
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 4px 18px rgba(26,58,92,0.08);
+  }
+  .avis-formulaire h3 { font-size: 1.1rem; font-weight: 800; color: var(--bleu); margin-bottom: 18px; }
+  .form-groupe { margin-bottom: 16px; }
+  .form-groupe label { display: block; font-weight: 700; font-size: 0.9rem; margin-bottom: 6px; color: var(--bleu); }
+  .form-groupe input,
+  .form-groupe textarea,
+  .form-groupe select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 2px solid #dde4ee;
+    border-radius: 10px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.95rem;
+    transition: border-color 0.2s;
+    background: white;
+  }
+  .form-groupe input:focus,
+  .form-groupe textarea:focus,
+  .form-groupe select:focus {
+    outline: none;
+    border-color: var(--bleu2);
+  }
+  .form-groupe textarea { min-height: 100px; resize: vertical; }
+  .btn-envoyer {
+    background: var(--bleu);
+    color: white;
+    width: 100%;
+    padding: 14px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 800;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .btn-envoyer:hover { background: var(--bleu2); }
+  #msg-confirmation {
+    display: none;
+    background: #eaf7ee;
+    color: var(--vert);
+    border-radius: 10px;
+    padding: 14px;
+    margin-top: 14px;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  /* ── CONTACT ── */
+  .contact-section {
+    background: var(--bleu);
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+  }
+  .contact-section h2 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 8px; }
+  .contact-section p { opacity: 0.85; margin-bottom: 28px; }
+  .contact-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 30px;
+  }
+  .contact-item {
+    background: rgba(255,255,255,0.1);
+    border-radius: 14px;
+    padding: 14px 22px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    color: white;
+    transition: background 0.2s;
+  }
+  .contact-item:hover { background: rgba(255,255,255,0.2); }
+  .contact-item .ic { font-size: 1.4rem; }
+
+  /* ── LIEN PRIVÉ RÉSERVATION ── */
+  .reservation-prive {
+    background: rgba(255,255,255,0.07);
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 16px;
+    padding: 20px 24px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .reservation-prive p { font-size: 0.9rem; margin-bottom: 12px; opacity: 0.8; }
+  .reservation-prive .code-input {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .reservation-prive input {
+    padding: 10px 16px;
+    border-radius: 50px;
+    border: none;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    width: 180px;
+    text-align: center;
+  }
+  .btn-code {
+    background: var(--or);
+    color: var(--bleu);
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-weight: 800;
+    border: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background 0.2s;
+  }
+  .btn-code:hover { background: var(--or2); }
+  #msg-code { margin-top: 10px; font-size: 0.85rem; }
+  #lien-calendly { display: none; margin-top: 12px; }
+  #lien-calendly a {
+    background: white;
+    color: var(--bleu);
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-weight: 800;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #0f2136;
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 20px;
+    font-size: 0.82rem;
+  }
+
+  /* ── ADMIN PANEL (caché sauf URL #admin) ── */
+  .admin-panel {
+    display: none;
+    background: #fff3cd;
+    border: 2px dashed var(--or);
+    border-radius: 16px;
+    padding: 24px;
+    margin: 30px auto;
+    max-width: 800px;
+  }
+  .admin-panel h3 { font-weight: 800; color: var(--bleu); margin-bottom: 16px; }
+  .admin-panel .form-groupe input,
+  .admin-panel .form-groupe textarea {
+    background: #fffdf5;
+  }
+  .btn-admin {
+    background: var(--bleu);
+    color: white;
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-weight: 800;
+    border: none;
+    cursor: pointer;
+    margin-right: 8px;
+    margin-top: 8px;
+    font-size: 0.9rem;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 500px) {
+    .hero { padding: 50px 16px 70px; }
+    .hero h1 { font-size: 1.75rem; }
+    .tarif-card .prix-gros { font-size: 2.2rem; }
+    .niveaux-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════ HERO ══════════════════════════════ -->
+<header class="hero">
+  <div class="hero-badge">📍 Gignac (34) — Cours à domicile</div>
+  <h1>Vos enfants ont besoin <span>d'un vrai coup de pouce</span> en maths ?</h1>
+  <p class="sous-titre">Vous êtes au bon endroit. Laurent BAREGE, enseignant agréé, accompagne chaque élève à son rythme — du primaire au lycée.</p>
+  <div class="cta-group">
+    <a href="tel:0768896578" class="btn btn-or">📞 Appeler maintenant</a>
+    <a href="#avis" class="btn btn-blanc">⭐ Voir les avis</a>
+  </div>
+  <svg class="hero-wave" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,40 C360,80 1080,0 1440,40 L1440,60 L0,60 Z" fill="#fffbf4"/>
+  </svg>
+</header>
+
+<!-- ══════════════════════════════ PRIX ACCROCHE ══════════════════════════════ -->
+<div class="prix-accroche">
+  <strong>19€/h</strong> seulement après crédit d'impôt
+  <span class="petit"> &nbsp;|&nbsp; 38€/h tarif brut — 50% remboursé par l'État via l'agrément SAP</span>
+</div>
+
+<!-- ══════════════════════════════ NIVEAUX ══════════════════════════════ -->
+<section id="niveaux">
+  <h2 class="section-titre">Pour <span>tous les niveaux</span></h2>
+  <div class="separateur"></div>
+  <div class="niveaux-grid">
+    <div class="niveau-card">
+      <div class="icon">🧒</div>
+      <h3>Primaire</h3>
+      <p>Bases solides, confiance dès le départ</p>
+    </div>
+    <div class="niveau-card">
+      <div class="icon">📐</div>
+      <h3>Collège</h3>
+      <p>6ème → 3ème, brevet inclus</p>
+    </div>
+    <div class="niveau-card">
+      <div class="icon">🎓</div>
+      <h3>Lycée</h3>
+      <p>2nde, 1ère, Terminale & bac</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ PÉDAGOGIE ══════════════════════════════ -->
+<section id="pedagogie">
+  <h2 class="section-titre">Une pédagogie <span>qui rassure</span></h2>
+  <div class="separateur"></div>
+  <div class="peda-box">
+    <p class="citation">« Chaque élève est unique. Mon rôle : trouver la clé qui lui ouvre la porte des maths. »</p>
+    <p>Pas de méthode unique. Pas de jugement. Dès la première séance, j'identifie les blocages réels de votre enfant et je construis une progression adaptée à <strong>son</strong> rythme et à <strong>sa</strong> façon d'apprendre.</p>
+    <ul class="peda-points">
+      <li>Cours 100% personnalisés, à domicile à Gignac et alentours</li>
+      <li>Objectif concret à chaque séance : avancer, comprendre, progresser</li>
+      <li>Communication régulière avec les parents sur les progrès</li>
+      <li>Ambiance bienveillante : l'erreur est un outil d'apprentissage</li>
+      <li>Résultats visibles dès les premières semaines</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ TARIFS ══════════════════════════════ -->
+<div class="tarif-section">
+  <div>
+    <section id="tarifs" style="padding:0 0 40px 0;">
+      <h2 class="section-titre">Tarifs <span>transparents</span></h2>
+      <div class="separateur"></div>
+
+      <div class="tarif-grid">
+        <div class="tarif-card vedette">
+          <h3>Cours individuel</h3>
+          <div class="prix-gros"><sup>€</sup>19<span>/h</span></div>
+          <div class="detail">après crédit d'impôt (tarif brut 38€/h)</div>
+          <div class="badge-ci">✅ 50% remboursé par l'État</div>
+        </div>
+        <div class="tarif-card">
+          <h3>Stage collectif</h3>
+          <div class="prix-gros" style="font-size:1.6rem">À partir de<br><sup>€</sup>38<span>/séance</span></div>
+          <div class="detail">Groupes de 4 élèves max · vacances scolaires</div>
+          <div class="badge-ci">🎉 Format intensif</div>
+        </div>
+      </div>
+
+      <!-- Logo SAP -->
+      <div class="sap-bloc">
+        <div class="sap-logo-placeholder">
+          LOGO<br>SAP<br><span style="font-size:0.55rem">(à télécharger<br>sur NOVA)</span>
+        </div>
+        <div class="sap-texte">
+          <strong>Agréé Service à la Personne</strong><br>
+          Bénéficiez de <strong>50% de réduction ou de crédit d'impôt</strong> sur le montant total des cours. Ce dispositif est accessible à tous les foyers fiscaux français.
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- ══════════════════════════════ STAGES ══════════════════════════════ -->
+<section id="stages">
+  <h2 class="section-titre">Stages <span>collectifs</span></h2>
+  <div class="separateur"></div>
+
+  <div class="stage-card">
+    <h3>Stage Maths pendant les vacances</h3>
+    <p>Des petits groupes de 4 élèves maximum pour une progression rapide dans une ambiance dynamique. Idéal pour combler les lacunes ou préparer un examen.</p>
+    <div class="badge-stage">📅 Prochaines dates :</div>
+
+    <div id="dates-stages">
+      <!-- Les dates sont gérées via l'admin panel ci-dessous -->
+      <p style="opacity:0.7; margin-top:14px; font-size:0.9rem">Aucune date planifiée pour le moment — revenez bientôt !</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ AVIS ══════════════════════════════ -->
+<section id="avis">
+  <h2 class="section-titre">Ce que <span>disent les familles</span></h2>
+  <div class="separateur"></div>
+
+  <div class="avis-grid" id="avis-publies">
+    <!-- Exemple d'avis prédéfini -->
+    <div class="avis-card">
+      <div class="etoiles">★★★★★</div>
+      <p class="texte">« Mon fils était en grande difficulté en 3ème. Après 2 mois avec Laurent, sa note est passée de 6 à 13. Il a retrouvé confiance en lui. »</p>
+      <p class="auteur">— Famille Martin, Gignac</p>
+    </div>
+    <div class="avis-card">
+      <div class="etoiles">★★★★★</div>
+      <p class="texte">« Très pédagogue, patient, et à l'écoute. Ma fille adore ses cours maintenant. Je recommande sans hésiter. »</p>
+      <p class="auteur">— Famille Dupont, Montarnaud</p>
+    </div>
+  </div>
+
+  <!-- FORMULAIRE AVIS -->
+  <div class="avis-formulaire">
+    <h3>✍️ Laisser un avis</h3>
+
+    <div class="form-groupe">
+      <label>Votre prénom et nom de famille</label>
+      <input type="text" id="avis-nom" placeholder="Ex : Sophie Martin">
+    </div>
+    <div class="form-groupe">
+      <label>Note</label>
+      <select id="avis-note">
+        <option value="5">★★★★★ — Excellent</option>
+        <option value="4">★★★★☆ — Très bien</option>
+        <option value="3">★★★☆☆ — Bien</option>
+      </select>
+    </div>
+    <div class="form-groupe">
+      <label>Votre témoignage</label>
+      <textarea id="avis-texte" placeholder="Partagez votre expérience (résultats de votre enfant, méthode, ambiance…)"></textarea>
+    </div>
+    <button class="btn-envoyer" onclick="soumettreAvis()">Envoyer mon avis ✉️</button>
+    <div id="msg-confirmation">✅ Merci pour votre avis ! Il sera publié après validation.</div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ CONTACT ══════════════════════════════ -->
+<div class="contact-section" id="contact">
+  <h2>Prêt à commencer ?</h2>
+  <p>Contactez-moi directement — je réponds dans la journée.</p>
+
+  <div class="contact-items">
+    <a href="tel:0768896578" class="contact-item">
+      <span class="ic">📞</span> 07 68 89 65 78
+    </a>
+    <a href="mailto:l.barege@gmail.com" class="contact-item">
+      <span class="ic">✉️</span> l.barege@gmail.com
+    </a>
+  </div>
+
+  <!-- LIEN PRIVÉ RÉSERVATION -->
+  <div class="reservation-prive">
+    <p>🔒 <strong>Espace réservation</strong> — réservé aux familles que je connais.<br>Saisissez le code que je vous ai communiqué :</p>
+    <div class="code-input">
+      <input type="password" id="code-famille" placeholder="Code secret">
+      <button class="btn-code" onclick="verifierCode()">Accéder →</button>
+    </div>
+    <p id="msg-code"></p>
+    <div id="lien-calendly">
+      <a href="https://calendly.com/l-barege" target="_blank">📅 Réserver une séance en ligne</a>
+      <p style="font-size:0.75rem; margin-top:8px; opacity:0.7">(Lien Calendly — à configurer dans le code)</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════ ADMIN PANEL (caché) ══════════════════════════════ -->
+<div class="admin-panel" id="admin-panel">
+  <h3>⚙️ Panneau d'administration — Laurent</h3>
+  <p style="font-size:0.9rem;color:#666;margin-bottom:18px">Ce panneau n'est visible qu'en ajoutant <code>#admin</code> à l'URL.</p>
+
+  <h4 style="margin-bottom:12px;color:var(--bleu)">Ajouter une date de stage</h4>
+  <div class="form-groupe">
+    <label>Description de la date</label>
+    <input type="text" id="admin-date-texte" placeholder="Ex : Stage Pâques – 7 au 9 avril – Collège / Lycée">
+  </div>
+  <div class="form-groupe">
+    <label>Lien d'inscription (optionnel)</label>
+    <input type="text" id="admin-date-lien" placeholder="https://...">
+  </div>
+  <button class="btn-admin" onclick="ajouterDate()">+ Ajouter cette date</button>
+
+  <h4 style="margin:20px 0 12px;color:var(--bleu)">Avis en attente de validation</h4>
+  <div id="admin-avis-attente">
+    <p style="font-size:0.9rem;color:#888">Aucun avis en attente.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════ FOOTER ══════════════════════════════ -->
+<footer>
+  <p>Laurent BAREGE — Cours de mathématiques à domicile — Gignac (34150)<br>
+  Micro-entreprise agréée Service à la Personne · <a href="mailto:l.barege@gmail.com" style="color:rgba(255,255,255,0.5)">l.barege@gmail.com</a></p>
+</footer>
+
+<!-- ══════════════════════════════ JAVASCRIPT ══════════════════════════════ -->
+<script>
+  // ── CODE RÉSERVATION PRIVÉE ──
+  // Changez "VOTRECODE" par un mot de passe simple (ex: gignac34)
+  const CODE_SECRET = "gignac34";
+
+  function verifierCode() {
+    const saisi = document.getElementById('code-famille').value;
+    const msg = document.getElementById('msg-code');
+    const lien = document.getElementById('lien-calendly');
+    if (saisi === CODE_SECRET) {
+      msg.style.color = '#27ae60';
+      msg.textContent = '✅ Accès autorisé !';
+      lien.style.display = 'block';
+    } else {
+      msg.style.color = '#e74c3c';
+      msg.textContent = '❌ Code incorrect. Demandez-le à Laurent.';
+    }
+  }
+
+  // ── AVIS FAMILLES ──
+  let avisEnAttente = JSON.parse(localStorage.getItem('avis_attente') || '[]');
+  let avisValides   = JSON.parse(localStorage.getItem('avis_valides') || '[]');
+
+  function soumettreAvis() {
+    const nom   = document.getElementById('avis-nom').value.trim();
+    const note  = document.getElementById('avis-note').value;
+    const texte = document.getElementById('avis-texte').value.trim();
+    if (!nom || !texte) { alert('Merci de remplir tous les champs.'); return; }
+
+    const etoiles = '★'.repeat(parseInt(note)) + '☆'.repeat(5 - parseInt(note));
+    const avis = { nom, etoiles, texte, date: new Date().toLocaleDateString('fr-FR') };
+    avisEnAttente.push(avis);
+    localStorage.setItem('avis_attente', JSON.stringify(avisEnAttente));
+
+    document.getElementById('msg-confirmation').style.display = 'block';
+    document.getElementById('avis-nom').value = '';
+    document.getElementById('avis-texte').value = '';
+    afficherAdminAvis();
+  }
+
+  function publierAvis(index) {
+    const avis = avisEnAttente[index];
+    avisValides.push(avis);
+    avisEnAttente.splice(index, 1);
+    localStorage.setItem('avis_attente', JSON.stringify(avisEnAttente));
+    localStorage.setItem('avis_valides', JSON.stringify(avisValides));
+    afficherAvisPublies();
+    afficherAdminAvis();
+  }
+
+  function supprimerAvisAttente(index) {
+    avisEnAttente.splice(index, 1);
+    localStorage.setItem('avis_attente', JSON.stringify(avisEnAttente));
+    afficherAdminAvis();
+  }
+
+  function afficherAvisPublies() {
+    if (avisValides.length === 0) return;
+    const container = document.getElementById('avis-publies');
+    avisValides.forEach(a => {
+      const card = document.createElement('div');
+      card.className = 'avis-card';
+      card.innerHTML = `<div class="etoiles">${a.etoiles}</div>
+        <p class="texte">« ${a.texte} »</p>
+        <p class="auteur">— ${a.nom}</p>`;
+      container.appendChild(card);
+    });
+  }
+
+  function afficherAdminAvis() {
+    const container = document.getElementById('admin-avis-attente');
+    if (avisEnAttente.length === 0) {
+      container.innerHTML = '<p style="font-size:0.9rem;color:#888">Aucun avis en attente.</p>';
+      return;
+    }
+    container.innerHTML = avisEnAttente.map((a, i) => `
+      <div style="background:white;border-radius:10px;padding:14px;margin-bottom:10px;border-left:4px solid var(--or)">
+        <strong>${a.nom}</strong> — ${a.etoiles}<br>
+        <span style="font-size:0.9rem;color:#555">${a.texte}</span><br>
+        <button class="btn-admin" style="background:var(--vert)" onclick="publierAvis(${i})">✅ Publier</button>
+        <button class="btn-admin" style="background:#c0392b" onclick="supprimerAvisAttente(${i})">🗑 Supprimer</button>
+      </div>`).join('');
+  }
+
+  // ── DATES STAGES ──
+  let datesStages = JSON.parse(localStorage.getItem('dates_stages') || '[]');
+
+  function ajouterDate() {
+    const texte = document.getElementById('admin-date-texte').value.trim();
+    const lien  = document.getElementById('admin-date-lien').value.trim();
+    if (!texte) { alert('Entrez une description.'); return; }
+    datesStages.push({ texte, lien });
+    localStorage.setItem('dates_stages', JSON.stringify(datesStages));
+    document.getElementById('admin-date-texte').value = '';
+    document.getElementById('admin-date-lien').value = '';
+    afficherDatesStages();
+  }
+
+  function supprimerDate(i) {
+    datesStages.splice(i, 1);
+    localStorage.setItem('dates_stages', JSON.stringify(datesStages));
+    afficherDatesStages();
+  }
+
+  function afficherDatesStages() {
+    const container = document.getElementById('dates-stages');
+    if (datesStages.length === 0) {
+      container.innerHTML = '<p style="opacity:0.7; margin-top:14px; font-size:0.9rem">Aucune date planifiée pour le moment — revenez bientôt !</p>';
+      return;
+    }
+    container.innerHTML = datesStages.map((d, i) => `
+      <div class="date-item">
+        <span>📅 ${d.texte}</span>
+        <span>
+          ${d.lien ? `<a href="${d.lien}" class="btn-inscription" target="_blank">S'inscrire</a>` : ''}
+          ${isAdmin ? `<button onclick="supprimerDate(${i})" style="background:rgba(255,255,255,0.2);border:none;color:white;padding:4px 10px;border-radius:50px;cursor:pointer;font-size:0.8rem">✕</button>` : ''}
+        </span>
+      </div>`).join('');
+  }
+
+  // ── AFFICHAGE ADMIN ──
+  const isAdmin = window.location.hash === '#admin';
+  if (isAdmin) {
+    document.getElementById('admin-panel').style.display = 'block';
+  }
+
+  // Init
+  afficherAvisPublies();
+  afficherAdminAvis();
+  afficherDatesStages();
+</script>
+</body>
+</html>
